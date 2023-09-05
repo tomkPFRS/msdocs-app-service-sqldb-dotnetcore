@@ -9,8 +9,9 @@ namespace DotNetCoreSqlDb
     {
         readonly Stopwatch _stopwatch = new Stopwatch();
 
-        public override void OnActionExecuting(ActionExecutingContext context) {
-            ViewResult)context.Result).ViewData["TimeElapsed"] = "N/A";
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            ((ViewResult)context.Result).ViewData["TimeElapsed"] = "N/A";
             _stopwatch.Start();
         }
 
