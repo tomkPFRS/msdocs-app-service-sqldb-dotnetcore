@@ -17,6 +17,8 @@ namespace DotNetCoreSqlDb
             if (context.Result is ViewResult)
             {
                 ((ViewResult)context.Result).ViewData["TimeElapsed"] = _stopwatch.Elapsed;
+            } else {
+                ((ViewResult)context.Result).ViewData["TimeElapsed"] = "N/A";
             }
             _stopwatch.Reset();
         }
