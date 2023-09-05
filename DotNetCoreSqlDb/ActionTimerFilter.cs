@@ -9,7 +9,10 @@ namespace DotNetCoreSqlDb
     {
         readonly Stopwatch _stopwatch = new Stopwatch();
 
-        public override void OnActionExecuting(ActionExecutingContext context) => _stopwatch.Start();
+        public override void OnActionExecuting(ActionExecutingContext context) {
+            ViewResult)context.Result).ViewData["TimeElapsed"] = "N/A";
+            _stopwatch.Start();
+        }
 
         public override void OnActionExecuted(ActionExecutedContext context)
         {
@@ -17,8 +20,6 @@ namespace DotNetCoreSqlDb
             if (context.Result is ViewResult)
             {
                 ((ViewResult)context.Result).ViewData["TimeElapsed"] = _stopwatch.Elapsed;
-            } else {
-                ((ViewResult)context.Result).ViewData["TimeElapsed"] = "N/A";
             }
             _stopwatch.Reset();
         }
