@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DotNetCoreSqlDb.Models;
-using System.Data.SqlClient;
 
 namespace DotNetCoreSqlDb.Data
 {
@@ -17,7 +16,7 @@ namespace DotNetCoreSqlDb.Data
         public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpContextAccessor accessor)
            : base(options)
         {
-            var conn = Database.GetDbConnection() as SqlConnection;
+            var conn = Database.GetDbConnection() as System.Data.SqlClient.SqlConnection;
             conn.AccessToken = accessor.HttpContext.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
         }
 
