@@ -16,7 +16,7 @@ namespace DotNetCoreSqlDb.Data
         public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpContextAccessor accessor)
            : base(options)
         {
-            var conn = Database.GetDbConnection() as System.Data.SqlClient.SqlConnection;
+            var conn = Database.GetDbConnection() as Microsoft.Data.SqlClient.SqlConnection;
             conn.AccessToken = accessor.HttpContext.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
         }
 
