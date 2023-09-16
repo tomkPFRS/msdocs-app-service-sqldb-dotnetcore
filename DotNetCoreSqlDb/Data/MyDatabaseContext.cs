@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DotNetCoreSqlDb.Models;
+using System.Data.SqlClient;
 
 namespace DotNetCoreSqlDb.Data
 {
