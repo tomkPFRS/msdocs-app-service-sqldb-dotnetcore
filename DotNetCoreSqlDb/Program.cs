@@ -19,6 +19,8 @@ builder.Services.AddControllersWithViews();
 // Add App Service logging
 builder.Logging.AddAzureWebAppDiagnostics();
 
+builder.Services.AddHttpContextAccessor(); // to get Request.Headers
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
